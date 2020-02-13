@@ -137,6 +137,7 @@
     </ClCompile>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Hooks.cpp" />
+    <ClCompile Include="Redirector.cpp" />
     <ClCompile Include="Transformation.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -158,6 +159,7 @@
     <ClInclude Include="..\obse\obse\Utilities.h" />
     <ClInclude Include="..\obse\StdAfx.h" />
     <ClInclude Include="Hooks.h" />
+    <ClInclude Include="Redirector.h" />
     <ClInclude Include="Transformation.h" />
   </ItemGroup>
   <ItemGroup>

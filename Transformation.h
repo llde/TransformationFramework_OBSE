@@ -25,7 +25,11 @@ struct Transformation {
 	std::forward_list<UInt8> b_controls;
 
 };
-	
+
+struct OldNpc {
+	std::string old_skeleton;
+};
+
 struct TransformNPC{
 	UInt8 ESPID;
 	UInt32 RefID;
@@ -33,6 +37,7 @@ struct TransformNPC{
 	Transformation* transform;
 	TransformStatus status;
 	UInt8 isPlayer;
+	OldNpc oldNpc;
 };
 
 bool InitTransformations();

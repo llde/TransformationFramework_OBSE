@@ -2,7 +2,7 @@
 #include "obse/CommandTable.h"
 
 #include "Hooks.h"
-
+#include "Redirector.h"
 
 
 #if OBLIVION
@@ -230,6 +230,8 @@ bool OBSEPlugin_Load(const OBSEInterface * obse)
 	if (!obse->isEditor)
 	{
 		InitHooks();
+		CreareRedirections();
+		//InstallRedirection
 		// NOTE: SERIALIZATION DOES NOT WORK USING THE DEFAULT OPCODE BASE IN RELEASE BUILDS OF OBSE
 		// it works in debug builds
 		g_serialization->SetSaveCallback(g_pluginHandle, ExamplePlugin_SaveCallback);

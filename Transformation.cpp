@@ -22,6 +22,7 @@ void HandleTransforms(void) {
 		if (var->transform->type == TransformType::Transform_Trigger) _MESSAGE("[WARN] Trigger transformation still not handled\n");
 		_MESSAGE("Start transform\n");
 		std::string s = skeletons_path + var->transform->skeletonSubs;
+		var->oldNpc.old_skeleton = ((TESNPC*)playerChar->baseForm)->model.GetModelPath();
 		if (playerChar->SetSkeletonPath(s.data()) == false) {
 			_MESSAGE("[ERROR] Transformation cannot complete. Could not set Skeleton");
 			//TODO remove from the list of NPC transform.

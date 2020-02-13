@@ -55,6 +55,7 @@
     </ClCompile>
     <ClCompile Include="Hooks.cpp" />
     <ClCompile Include="Transformation.cpp" />
+    <ClCompile Include="Redirector.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\obse\obse\GameActorValues.h">
@@ -110,6 +111,7 @@
     </ClInclude>
     <ClInclude Include="Hooks.h" />
     <ClInclude Include="Transformation.h" />
+    <ClInclude Include="Redirector.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\obse\obse\GameRTTI_1_1.inl">
