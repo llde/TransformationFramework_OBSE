@@ -1,4 +1,6 @@
+
 #include "Redirector.h"
+#include "..\Detours\detours.h"
 
 #define REDIRECT(name, ret, ...) typedef ret(WINAPI *##name##_t)(__VA_ARGS__); \
 static name##_t Original_##name; \
@@ -84,8 +86,18 @@ void AddRedirection(void** orig, void* redirect, wchar_t* name) {
 	Redirections = current;
 }
 
-
+#pragma comment(lib, "detours.lib")
 void InstallRedirects(void) {
 	if (Redirections == NULL) return;
 	//Add Detours
+	DetourTransactionBegin();
+	DetourUpdateThread(GetCurrentThread());
+	for (Redirection* red = Redirections; red != NULL; red = red->next) {
+		DetourAttach(red->original, red->redirection);
+		_MESSAGE("Redirecting %ls", red->name);
+	}
+	if (DetourTransactionCommit() != NO_ERROR)
+		_MESSAGE("Fail detour transaction commit");
+
+	_MESSAGE("Detour transaction commit complete");
 }

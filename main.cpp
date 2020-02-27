@@ -231,7 +231,7 @@ bool OBSEPlugin_Load(const OBSEInterface * obse)
 	{
 		InitHooks();
 		CreareRedirections();
-		//InstallRedirection
+		InstallRedirects();
 		// NOTE: SERIALIZATION DOES NOT WORK USING THE DEFAULT OPCODE BASE IN RELEASE BUILDS OF OBSE
 		// it works in debug builds
 		g_serialization->SetSaveCallback(g_pluginHandle, ExamplePlugin_SaveCallback);
